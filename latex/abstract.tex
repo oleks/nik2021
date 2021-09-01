@@ -1,0 +1,27 @@
+\begin{abstract}
+
+Contemporary revision control systems (e.g., git) use so-called
+``diffs'' as a basic building block. Under the assumption that a
+digital artefact is a sequence of comparable blocks (e.g., a file is a
+sequence of lines) --- a classical ``diff'' is a denotation of how two
+such sequences differ. We know how to compute such diffs efficiently.
+However, user-intervention to fine-pick which changes go into which
+revision, usually helps ensure a more auditable trail of revisions.
+
+With humans in the loop, diffs should be human-editable.  This is
+conceivable for line-oriented, text-based files (e.g., source code),
+but less so for binary files (e.g., PDF). It remains an open problem
+how to efficiently control the revision of the latter kind of files,
+while ensuring auditability. This is problematic in an increasingly
+digital society.
+
+% edit commands and diffs
+% edit commands vs. diffs
+% edit commands as diffs
+
+In this paper, I expand upon the notion of a diff, to enable a
+sequence of edit commands to act as a diff. This allows the user to
+reason about a diff at a level of abstraction close to, or equivalent
+to the one at which the changes were made.
+
+\end{abstract}
