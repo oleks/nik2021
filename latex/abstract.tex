@@ -1,27 +1,28 @@
 \begin{abstract}
 
-Contemporary revision control systems (e.g., git) use so-called
-``diffs'' as a basic building block. Under the assumption that a
-digital artefact is a sequence of comparable blocks (e.g., a file is a
-sequence of lines) --- a classical ``diff'' is a denotation of how two
-such sequences differ. We know how to compute such diffs efficiently.
-However, user-intervention to fine-pick which changes go into which
-revision, usually helps ensure a more auditable trail of revisions.
+Contemporary revision control systems (e.g., git) employ line-by-line
+differences between files (so-called ``diffs``), to precisely denote
+the difference between file revisions. Such diffs are quick to apply
+and revert, are often comprehensible to humans, while allowing the
+revision control system to function as an incremental backup
+system---storing just the differences between revisions.
 
-With humans in the loop, diffs should be human-editable.  This is
-conceivable for line-oriented, text-based files (e.g., source code),
-but less so for binary files (e.g., PDF). It remains an open problem
-how to efficiently control the revision of the latter kind of files,
-while ensuring auditability. This is problematic in an increasingly
-digital society.
+However, line-by-line ``diffs`` can only be effectively performed on
+text-based files. They are ill-suited for other file types, such as
+image, video, and PDF files. The design of these file formats often
+did not factor in that multiple revisions of such files may need to be
+maintained. Yet, in the modern highly digital society, it is becoming
+increasingly more important to maintain revisions of arbitrary file
+types.
 
-% edit commands and diffs
-% edit commands vs. diffs
-% edit commands as diffs
+The forward difference between one revision and the next can often
+just as precisely be described by an edit command, and a denotation of
+the environment in which that command has to be executed. This paper
+describes a revision control system that employs such an approach.
 
-In this paper, I expand upon the notion of a diff, to enable a
-sequence of edit commands to act as a diff. This allows the user to
-reason about a diff at a level of abstraction close to, or equivalent
-to the one at which the changes were made.
+Revision control with edit commands, rather than diffs, does suffer
+from reduced ability to immediately revert changes, and may increase
+the space required to store all the revisions. However, the benefits
+it brings may outweigh these downsides in various domains.
 
 \end{abstract}
